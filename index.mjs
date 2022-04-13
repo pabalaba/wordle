@@ -34,17 +34,20 @@ const wordChecker = function (word, solution) {
         success: false
     }
 
+    /*
+        Coloro la lettera
+    */
     for (let index in word) {
         if(word[index]===solution[index])
-            result.data += chalk.green(word[index]);
+            result.data += chalk.green(word[index]); //Se le lettere allo stesso index sono uguali coloro di verde
         else if(solution.includes(word[index]))
-            result.data += chalk.yellow(word[index]);
+            result.data += chalk.yellow(word[index]); //Se la soluzione contiene la lettera coloro di giallo
         else
-            result.data += chalk.gray(word[index]);
+            result.data += chalk.gray(word[index]); //Se la soluzione non contine la lettera coloro di grigio
     }
 
     if(word === solution)
-        result.success = true;
+        result.success = true;  // se le parole sono uguali utente vince
 
     return result;
 }
